@@ -17,6 +17,11 @@
         components_number int4 not null
     );
 
+    create table Currency (
+        Unit varchar(255) not null,
+        primary key (Unit)
+    );
+
     create table DetailAccount (
         number int4 not null,
         primary key (number)
@@ -41,15 +46,10 @@
         primary key (ID_TRANSACTION)
     );
 
-    create table Unit (
-        Unit varchar(255) not null,
-        primary key (Unit)
-    );
-
     alter table Act_Brief 
         add constraint FK6FBB3E4D3E842A49 
         foreign key (UNIT) 
-        references Unit;
+        references Currency;
 
     alter table Act_Brief 
         add constraint FK6FBB3E4DB48C1A95 
@@ -74,7 +74,7 @@
     alter table Entry 
         add constraint FK40018523E842A49 
         foreign key (UNIT) 
-        references Unit;
+        references Currency;
 
     alter table Entry 
         add constraint FK40018521011F370 

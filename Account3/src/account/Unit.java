@@ -3,6 +3,7 @@ package account;
 import javax.persistence.*;
 
 @Entity
+@Table(name="Currency")
 public class Unit implements Comparable<Unit> {
 	@Id
 	@Column(name = "Unit")
