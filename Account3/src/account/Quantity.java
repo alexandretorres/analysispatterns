@@ -1,11 +1,14 @@
 package account;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
+
 import javax.persistence.*;
 
 @Embeddable
 public class Quantity {
-	private double amount;
+	@Column(precision=20,scale=2)
+	private BigDecimal amount;
 	@ManyToOne
 	private Unit unit;
 
@@ -13,12 +16,16 @@ public class Quantity {
 
 	}
 
-	public Quantity(double amount, Unit unit) {
+	public Quantity(BigDecimal amount, Unit unit) {
 		this.amount = amount;
 		this.unit = unit;
 	}
+	public Quantity(double amount, Unit unit) {
+		this.amount = new BigDecimal( amount);
+		this.unit = unit;
+	}
 
-	public double getAmount() {
+	public BigDecimal getAmount() {
 		return amount;
 	}
 
@@ -44,7 +51,7 @@ public class Quantity {
 	}
 
 	public Quantity negate() {
-		return new Quantity(-amount, unit);
+		return new Quantity(amount.negate(), unit);
 	}
 
 	public String toString() {

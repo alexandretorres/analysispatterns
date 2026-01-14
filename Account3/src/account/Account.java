@@ -19,7 +19,7 @@ public abstract class Account implements Comparable<Account> {
 	private int number;
 	@Embedded
 	@AttributeOverride(name = "amount", column = @Column(name = "value", table = "Act_Brief"))
-	@AssociationOverride(name = "unit", joinColumns = @JoinColumn(name = "UNIT", table = "Act_Brief"))
+	@AssociationOverride(name = "unit", joinColumns = @JoinColumn(name = "unit", table = "Act_Brief"))
 	private Quantity lastBalance = new Quantity();
 	@Column(name = "dt_calc", table = "Act_Brief")
 	@Temporal(TemporalType.DATE)
@@ -59,7 +59,7 @@ public abstract class Account implements Comparable<Account> {
 		Unit unit = null;
 		List<Entry> entries = getEntries();
 		for (Entry entry :entries) {
-			sum += entry.getQuantity().getAmount();
+			sum += entry.getQuantity().getAmount().doubleValue();
 			unit = entry.getQuantity().getUnit();
 		}
 		this.lastBalance = new Quantity(sum, unit);

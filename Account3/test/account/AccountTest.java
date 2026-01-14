@@ -69,7 +69,7 @@ public class AccountTest {
 				System.out.println(" component accounts:"+act.getNumber());
 			}
 			System.out.println("summary balance "+sac.balance());
-			assertEquals(-1550.0, sac.getLastBalance().getAmount(),0.1);
+			assertEquals(-1550.0, sac.getLastBalance().getAmount().doubleValue(),0.1);
 			for (Entry ent:sac.getEntries()) {
 				System.out.println("entry "+ent.getQuantity());
 			}
