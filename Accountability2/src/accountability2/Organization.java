@@ -1,4 +1,4 @@
-package accountability;
+package accountability2;
 
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;

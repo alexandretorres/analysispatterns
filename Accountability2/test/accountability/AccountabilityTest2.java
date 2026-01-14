@@ -11,6 +11,13 @@ import javax.persistence.Persistence;
 
 import org.junit.Test;
 
+import accountability2.Accountability;
+import accountability2.AccountabilityType;
+import accountability2.Organization;
+import accountability2.PartyType;
+import accountability2.Person;
+import accountability2.TimePeriod;
+
 
 public class AccountabilityTest2 {
 
