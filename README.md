@@ -13,5 +13,6 @@ The following Pattern "families" are implemented:
 
 *Resource Allocation
 
-Accountability (1) ENORM Model
-<img width="1420" height="761" alt="image" src="https://github.com/user-attachments/assets/e48f8d6d-4b3f-4768-a588-50d9d741a124" />
+Accountability (2) ENORM Model
+<img width="1391" height="841" alt="image" src="https://github.com/user-attachments/assets/4d052dc7-049d-48ca-ae0c-fd69eb1fdd66" />
+
