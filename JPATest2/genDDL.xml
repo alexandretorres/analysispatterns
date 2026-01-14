@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="conta" default="schemaexport" basedir=".">
+<target name="schemaexport">
+<!--<property name="jtribase" value="D:/eclipse/workspace/jtri.base/"/>	
+<property name="jtribase" value="C:/dev/jtri/jtri.tools/org.jtri.base/libs/"/>	-->
+	<property name="jtribase" value="C:/eclipse/eclipse34/plugins/org.hibernate.eclipse_3.2.2.Beta1/lib/"/>		
+	
+<!--<eclipse.convertPath resourcepath="RevisaoArtigo" property="projPath"/>
+<echo>${projPath}</echo>-->
+
+<taskdef name="hibernatetool" classname="org.hibernate.tool.ant.HibernateToolTask"> 
+<classpath>
+	<pathelement location="build/classes/"/>
+	<fileset dir="C:/java/hibernate-distribution-3.5.2-Final" includes="**/*.jar"/>
+	<fileset dir="${jtribase}" includes="**/*.jar"/> 
+	<fileset dir="c:/eclipse/eclipse35_work/workspace/JPATest" includes="**/*.jar"/>
+</classpath>
+</taskdef>
+	
+	<copy file="schema-export.sql" overwrite="true" failonerror="false"  tofile="schema-export.bak.sql"></copy>
+<!--<hibernatetool destdir="${projPath}">-->
+	<hibernatetool destdir="c:/eclipse/eclipse35_work/workspace/JPATest">
+		<jpaconfiguration persistenceunit="TesteJPA2"/>
+		<classpath>
+			<path location="c:/eclipse/eclipse35_work/workspace/JPATest/bin" />
+			 </classpath>
+		<!--<configuration configurationfile="hibernate.cfg.xml"/>-->
+		<!--				<configuration propertyfile="genDDL.properties">
+	<fileset dir="hbm/persistent">
+				<include name="**/*.hbm.xml"/>
+			</fileset>
+	    </configuration>  -->
+		
+	<hbm2ddl
+		drop="true"		
+		create="true"
+		export="false"
+		delimiter=";"
+		OutputFileName="schema-export.sql">
+	</hbm2ddl>
+</hibernatetool> 
+</target>
+</project>

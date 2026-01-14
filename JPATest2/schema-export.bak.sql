@@ -1,0 +1,10 @@
+alter table Resource drop constraint FKEF86282EB0CE475F;
+alter table Territory drop constraint FKF95807FAB0CE475F;
+drop table Account if exists;
+drop table Resource if exists;
+drop table Territory if exists;
+create table Account (account_id integer not null, name varchar(255), primary key (account_id));
+create table Resource (resourceId integer not null, name varchar(255), ACCOUNT integer, primary key (resourceId));
+create table Territory (territoryId integer not null, name varchar(255), ACCOUNT integer, primary key (territoryId));
+alter table Resource add constraint FKEF86282EB0CE475F foreign key (ACCOUNT) references Account;
+alter table Territory add constraint FKF95807FAB0CE475F foreign key (ACCOUNT) references Account;
