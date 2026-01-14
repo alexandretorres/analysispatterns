@@ -5,7 +5,10 @@ https://martinfowler.com/books/ap.html
 
 The following Pattern "families" are implemented:
 
-Account/Transaction
-Accountability/Party/Time
-Address Book
-Resource Allocation
+*Account/Transaction
+
+*Accountability/Party/Time
+
+*Address Book
+
+*Resource Allocation
