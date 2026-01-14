@@ -18,7 +18,7 @@ EntityManagerFactory emf = Persistence.createEntityManagerFactory("Resource2");
 		Configuration cfg = new Configuration();
 		
 		cfg.buildSessionFactory();
-		new SchemaExport(cfg).create(true, false);
+		//new SchemaExport(cfg).create(true, false);
 
 	}
 
